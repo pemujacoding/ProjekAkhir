@@ -13,7 +13,7 @@ import javax.swing.table.AbstractTableModel;
 public class ModelTablePlaylist extends AbstractTableModel {
     List<ModelPlaylist> daftarPlaylist;
 
-    String kolom[] = {"Judul"};
+    String kolom[] = {"Id Playlist", "Id User", "Judul"};
     
     public ModelTablePlaylist (List<ModelPlaylist> daftarPlaylist) {
         this.daftarPlaylist = daftarPlaylist;
@@ -32,6 +32,10 @@ public class ModelTablePlaylist extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0 :
+                return daftarPlaylist.get(rowIndex).getId_playlist();
+            case 1:
+                return daftarPlaylist.get(rowIndex).getId_user();
+            case 2:
                 return daftarPlaylist.get(rowIndex).getJudul();
             default:
                 return null;

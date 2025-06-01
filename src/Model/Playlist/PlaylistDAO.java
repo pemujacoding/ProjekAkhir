@@ -86,12 +86,19 @@ public class PlaylistDAO {
 
         try {
             listPlaylist = new ArrayList<>();
-            String query = "SELECT id_user,judul_playlist FROM playlist WHERE id_user=?";
+            String query = "SELECT id_playlist, id_user, judul_playlist FROM playlist WHERE id_user=?;";
             PreparedStatement statement;
             statement = Connector.Connect().prepareStatement(query);
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
+                
+                System.out.println("Kolom yang tersedia di ResultSet:");
+                java.sql.ResultSetMetaData meta = resultSet.getMetaData();
+                for (int i = 1; i <= meta.getColumnCount(); i++) {
+                    System.out.println(meta.getColumnName(i));
+                }
+                
                 ModelPlaylist pl = new ModelPlaylist();
                 pl.setId_playlist(resultSet.getInt("id_playlist"));
                 pl.setId_user(resultSet.getInt("id_user"));
