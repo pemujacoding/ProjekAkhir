@@ -19,6 +19,7 @@ public class LogIn extends javax.swing.JFrame {
     ControllerUser controller = new ControllerUser(this);
     public LogIn() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

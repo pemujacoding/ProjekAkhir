@@ -21,6 +21,7 @@ public class ViewAkun extends javax.swing.JFrame {
     
     public ViewAkun(String usn) {
         initComponents();
+        setLocationRelativeTo(null);
         namaUser.setText(usn);
         usernameInput.setText(usn);
         controller.ViewDataAkun(usn);

@@ -51,7 +51,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tambahBtn1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="tambahBtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="editBtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="namaUser" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
@@ -76,7 +76,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel2" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="tambahBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="editBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tambahBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -90,6 +90,9 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="judulInput">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="judulInputActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -99,7 +102,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Judul Playlist"/>
+            <Property name="text" type="java.lang.String" value="Edit Playlist"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="namaUser">
@@ -110,7 +113,7 @@
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="tambahBtn">
+        <Component class="javax.swing.JButton" name="editBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d8" green="ef" red="fa" type="rgb"/>
@@ -121,10 +124,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3c" green="46" red="7f" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Tambah"/>
+            <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tambahBtnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editBtnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="tambahBtn1">

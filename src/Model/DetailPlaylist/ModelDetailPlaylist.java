@@ -9,7 +9,7 @@ package Model.DetailPlaylist;
  * @author ASUS
  */
 public class ModelDetailPlaylist {
-    int id_playlist, id_user, id_detail;
+    private int id_playlist, id_lagu, id_detail;
 
     public int getId_playlist() {
         return id_playlist;
@@ -19,12 +19,12 @@ public class ModelDetailPlaylist {
         this.id_playlist = id_playlist;
     }
 
-    public int getId_user() {
-        return id_user;
+    public int getId_lagu() {
+        return id_lagu;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setId_lagu(int id_lagu) {
+        this.id_lagu = id_lagu;
     }
 
     public int getId_detail() {
@@ -34,5 +34,6 @@ public class ModelDetailPlaylist {
     public void setId_detail(int id_detail) {
         this.id_detail = id_detail;
     }
+
     
 }

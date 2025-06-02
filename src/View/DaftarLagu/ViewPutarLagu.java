@@ -3,17 +3,19 @@ package View.DaftarLagu;
 
 import java.sql.*;
 import AudioPlayer.*;
+import Controller.ControllerDetailPlaylist;
+import View.DetailPlaylist.PilihPlaylist;
 
 
 public class ViewPutarLagu extends javax.swing.JFrame {
     
     private String filePath;
     private AudioPlayer audioPlayer;
-
+    
     public ViewPutarLagu(int id, String usn) {
         initComponents();
         namaUser.setText(usn);
-        
+        idLagu.setText(String.valueOf(id));
         //mengambil data dari database untuk ditampilkan ke ViewPutarLagu
         try {
             Connection conn = Model.Connector.Connect();
@@ -32,9 +34,9 @@ public class ViewPutarLagu extends javax.swing.JFrame {
                 this.filePath = link;
                 
                 
-                System.out.println("Judul: " + judul);
-                System.out.println("Artis: " + artis);
-                System.out.println("Tanggal rilis: " + tanggal);
+                //System.out.println("Judul: " + judul);
+                //System.out.println("Artis: " + artis);
+                //System.out.println("Tanggal rilis: " + tanggal);
                 
                 labelJudul.setText(judul);
                 labelArtis.setText(artis);
@@ -68,6 +70,7 @@ public class ViewPutarLagu extends javax.swing.JFrame {
         ButtonAddPlaylist = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         ButtonStop = new javax.swing.JButton();
+        idLagu = new javax.swing.JLabel();
         namaUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -135,6 +138,9 @@ public class ViewPutarLagu extends javax.swing.JFrame {
             }
         });
 
+        idLagu.setForeground(new java.awt.Color(255, 239, 216));
+        idLagu.setText("jLabel4");
+
         namaUser.setForeground(new java.awt.Color(255, 239, 216));
         namaUser.setText("jLabel4");
 
@@ -155,24 +161,25 @@ public class ViewPutarLagu extends javax.swing.JFrame {
                         .addComponent(ButtonStop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(68, 68, 68))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3))
-                            .addComponent(labelTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelArtis, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(namaUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
+                    .addComponent(labelTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelArtis, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(namaUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(idLagu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +211,9 @@ public class ViewPutarLagu extends javax.swing.JFrame {
                     .addComponent(ButtonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonAddPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(namaUser)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLagu)
+                    .addComponent(namaUser))
                 .addContainerGap())
         );
 
@@ -225,6 +234,9 @@ public class ViewPutarLagu extends javax.swing.JFrame {
 
     private void ButtonAddPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddPlaylistActionPerformed
         // TODO add your handling code here:
+        int id = Integer.parseInt(idLagu.getText());
+        new PilihPlaylist(id,namaUser.getText()).setVisible(true);
+        dispose();
     }//GEN-LAST:event_ButtonAddPlaylistActionPerformed
 
     private void ButtonStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStopActionPerformed
@@ -240,7 +252,6 @@ public class ViewPutarLagu extends javax.swing.JFrame {
             audioPlayer.stop();
         }
         
-        new ViewDaftarLagu(namaUser.getText()).setVisible(true);
         dispose();
     }//GEN-LAST:event_ButtonKembaliActionPerformed
 
@@ -293,6 +304,7 @@ public class ViewPutarLagu extends javax.swing.JFrame {
     private javax.swing.JButton ButtonKembali;
     private javax.swing.JButton ButtonPlay;
     private javax.swing.JButton ButtonStop;
+    private javax.swing.JLabel idLagu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

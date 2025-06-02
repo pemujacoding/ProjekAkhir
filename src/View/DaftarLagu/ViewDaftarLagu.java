@@ -195,7 +195,6 @@ public class ViewDaftarLagu extends javax.swing.JFrame {
         if (selectedRow != -1) {
             int id = Integer.parseInt(TabelDaftarLagu.getValueAt(selectedRow, 0).toString());
             new ViewPutarLagu(id,namaUser.getText()).setVisible(true);
-            dispose();
         }
     }//GEN-LAST:event_TabelDaftarLaguMouseClicked
 

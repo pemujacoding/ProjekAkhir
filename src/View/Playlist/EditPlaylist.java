@@ -11,18 +11,18 @@ import javax.swing.JTextField;
  *
  * @author ASUS
  */
-public class TambahPlaylist extends javax.swing.JFrame {
+public class EditPlaylist extends javax.swing.JFrame {
 
     /**
      * Creates new form TambahPlaylist
      */
     ControllerPlaylist controller = new ControllerPlaylist(this);
-    public TambahPlaylist(String usn) {
-       initComponents();
-       setLocationRelativeTo(null);
-       namaUser.setText(usn);
+    public EditPlaylist(String ply) {
+        initComponents();
+        setLocationRelativeTo(null);
+        namaUser.setText(ply);
     }
-    public TambahPlaylist() {
+    public EditPlaylist() {
         initComponents();
     }
 
@@ -39,27 +39,33 @@ public class TambahPlaylist extends javax.swing.JFrame {
         judulInput = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         namaUser = new javax.swing.JLabel();
-        tambahBtn = new javax.swing.JButton();
+        editBtn = new javax.swing.JButton();
         tambahBtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(150, 113, 113));
 
+        judulInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                judulInputActionPerformed(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Judul Playlist");
+        jLabel2.setText("Edit Playlist");
 
         namaUser.setForeground(new java.awt.Color(150, 113, 113));
         namaUser.setText("jLabel1");
 
-        tambahBtn.setBackground(new java.awt.Color(250, 239, 216));
-        tambahBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        tambahBtn.setForeground(new java.awt.Color(127, 70, 60));
-        tambahBtn.setText("Tambah");
-        tambahBtn.addActionListener(new java.awt.event.ActionListener() {
+        editBtn.setBackground(new java.awt.Color(250, 239, 216));
+        editBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        editBtn.setForeground(new java.awt.Color(127, 70, 60));
+        editBtn.setText("Edit");
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tambahBtnActionPerformed(evt);
+                editBtnActionPerformed(evt);
             }
         });
 
@@ -85,7 +91,7 @@ public class TambahPlaylist extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tambahBtn1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tambahBtn)
+                        .addComponent(editBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(namaUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -104,7 +110,7 @@ public class TambahPlaylist extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tambahBtn)
+                            .addComponent(editBtn)
                             .addComponent(tambahBtn1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(judulInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,17 +131,21 @@ public class TambahPlaylist extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tambahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahBtnActionPerformed
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         // TODO add your handling code here:
-        String usn = namaUser.getText();
-        controller.insertPlaylist(usn);
+        String ply = namaUser.getText();
+        controller.UpdatePlaylist(ply);
         dispose();
-    }//GEN-LAST:event_tambahBtnActionPerformed
+    }//GEN-LAST:event_editBtnActionPerformed
 
     private void tambahBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahBtn1ActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_tambahBtn1ActionPerformed
+
+    private void judulInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_judulInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_judulInputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,30 +164,31 @@ public class TambahPlaylist extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TambahPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TambahPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TambahPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TambahPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditPlaylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TambahPlaylist().setVisible(true);
+                new EditPlaylist().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton editBtn;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField judulInput;
     private javax.swing.JLabel namaUser;
-    private javax.swing.JButton tambahBtn;
     private javax.swing.JButton tambahBtn1;
     // End of variables declaration//GEN-END:variables
 

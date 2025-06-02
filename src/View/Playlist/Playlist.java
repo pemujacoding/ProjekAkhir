@@ -2,6 +2,8 @@
 package View.Playlist;
 import Controller.ControllerPlaylist;
 import View.DaftarLagu.Menu;
+import View.DetailPlaylist.DetailPlaylist;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 public class Playlist extends javax.swing.JFrame {
@@ -32,8 +34,10 @@ public class Playlist extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         playlistTabel = new javax.swing.JTable();
         namaUser = new javax.swing.JLabel();
-        hapusBtn1 = new javax.swing.JButton();
+        editBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        backBtn1 = new javax.swing.JButton();
+        pilihBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(250, 239, 216));
@@ -80,13 +84,13 @@ public class Playlist extends javax.swing.JFrame {
         namaUser.setForeground(new java.awt.Color(250, 239, 216));
         namaUser.setText("jLabel1");
 
-        hapusBtn1.setBackground(new java.awt.Color(150, 113, 113));
-        hapusBtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        hapusBtn1.setForeground(new java.awt.Color(255, 255, 255));
-        hapusBtn1.setText("Edit");
-        hapusBtn1.addActionListener(new java.awt.event.ActionListener() {
+        editBtn.setBackground(new java.awt.Color(150, 113, 113));
+        editBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        editBtn.setForeground(new java.awt.Color(255, 255, 255));
+        editBtn.setText("Edit");
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hapusBtn1ActionPerformed(evt);
+                editBtnActionPerformed(evt);
             }
         });
 
@@ -100,6 +104,26 @@ public class Playlist extends javax.swing.JFrame {
             }
         });
 
+        backBtn1.setBackground(new java.awt.Color(150, 113, 113));
+        backBtn1.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        backBtn1.setForeground(new java.awt.Color(255, 255, 255));
+        backBtn1.setText("Reload");
+        backBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtn1ActionPerformed(evt);
+            }
+        });
+
+        pilihBtn.setBackground(new java.awt.Color(150, 113, 113));
+        pilihBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pilihBtn.setForeground(new java.awt.Color(255, 255, 255));
+        pilihBtn.setText("Pilih");
+        pilihBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pilihBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -107,49 +131,55 @@ public class Playlist extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(namaUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(backBtn)))
-                .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(backBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backBtn1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(tambahBtn)
-                        .addGap(42, 42, 42)
-                        .addComponent(hapusBtn)
-                        .addGap(37, 37, 37)
-                        .addComponent(hapusBtn1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(namaUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addComponent(tambahBtn)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(hapusBtn)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(editBtn)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(pilihBtn)
+                                                .addGap(31, 31, 31)))))))
+                        .addGap(0, 25, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(backBtn)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backBtn)
+                    .addComponent(backBtn1))
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(tambahBtn)
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                        .addComponent(namaUser))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(hapusBtn)
-                            .addComponent(hapusBtn1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hapusBtn)
+                    .addComponent(editBtn)
+                    .addComponent(tambahBtn)
+                    .addComponent(pilihBtn))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaUser)
                 .addContainerGap())
         );
 
@@ -161,29 +191,66 @@ public class Playlist extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void tambahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahBtnActionPerformed
-        new TambahPlaylist(namaUser.getText()).setVisible(true);
+        String usn = namaUser.getText();
+        new TambahPlaylist(usn).setVisible(true);
     }//GEN-LAST:event_tambahBtnActionPerformed
 
     private void hapusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusBtnActionPerformed
         // TODO add your handling code here:
+        int baris = playlistTabel.getSelectedRow(); 
+        if(baris == -1){
+            JOptionPane.showMessageDialog(null,"Pilih data dulu");
+        }
+        else{
+         String judulPlaylist = (playlistTabel.getValueAt(baris, 0).toString());
+         ctrlPlaylist.HapusPlaylist(judulPlaylist);   
+        }
     }//GEN-LAST:event_hapusBtnActionPerformed
 
-    private void hapusBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusBtn1ActionPerformed
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_hapusBtn1ActionPerformed
+        int baris = playlistTabel.getSelectedRow();
+        if(baris == -1){
+            JOptionPane.showMessageDialog(null,"Pilih data dulu");
+        }
+        else{
+             String judulPlaylist = (playlistTabel.getValueAt(baris, 0).toString());
+            new EditPlaylist(judulPlaylist).setVisible(true);
+        }
+    }//GEN-LAST:event_editBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         dispose();
         new Menu(namaUser.getText()).setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void backBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtn1ActionPerformed
+        // TODO add your handling code here:
+        String usn = namaUser.getText();
+        ctrlPlaylist.tampilkanDaftarPlaylist(usn);
+    }//GEN-LAST:event_backBtn1ActionPerformed
+
+    private void pilihBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihBtnActionPerformed
+        // TODO add your handling code here:
+        int baris = playlistTabel.getSelectedRow();
+        if(baris == -1){
+            JOptionPane.showMessageDialog(null,"Pilih data dulu");
+        }
+        else{
+            String judulPlaylist = (playlistTabel.getValueAt(baris, 0).toString());
+            String username = namaUser.getText();
+            new DetailPlaylist(judulPlaylist,username).setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_pilihBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,12 +289,14 @@ public class Playlist extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.JButton backBtn1;
+    private javax.swing.JButton editBtn;
     private javax.swing.JButton hapusBtn;
-    private javax.swing.JButton hapusBtn1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel namaUser;
+    private javax.swing.JButton pilihBtn;
     private javax.swing.JTable playlistTabel;
     private javax.swing.JButton tambahBtn;
     // End of variables declaration//GEN-END:variables

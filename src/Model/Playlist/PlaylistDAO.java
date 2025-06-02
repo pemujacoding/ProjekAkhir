@@ -33,11 +33,11 @@ public class PlaylistDAO {
      
     public void update(ModelPlaylist playlist, String judul) {
        try {
-            String query = "UPDATE movie set judul_playlist = ? WHERE judul_playlist = ?";
+            String query = "UPDATE playlist SET judul_playlist = ? WHERE judul_playlist = ?";
             PreparedStatement statement;
             statement = Connector.Connect().prepareStatement(query);
             statement.setString(1, playlist.getJudul());
-            statement.setString(1, judul);
+            statement.setString(2, judul);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
